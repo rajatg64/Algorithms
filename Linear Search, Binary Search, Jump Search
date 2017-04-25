@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp
+{
+    class Program
+    {
+        static public void LinearSearch(int[] array,int n)
+        {
+            //Time complexity O(n)
+            int index = -1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i]==n)
+                {
+                    index = i;
+                    break;
+                }
+
+            }
+            if (index != -1)
+                Console.WriteLine("Element is at Index: " + index);
+            else
+                Console.WriteLine("Element doesn't exists in the array");
+            
+        }
+        static int BinarySearch(int[] array, int a, int b, int n)
+        {
+            //Time Complexity O(logn)
+            if (array.Length>=1)
+            {
+                int mid = a+(b- a) / 2;
+                if (array[mid] == n)
+                {
+                    return mid;
+                }
+                else if (array[mid] < n)
+                {
+                    return BinarySearch(array, mid, b, n);
+                }
+                else if (array[mid] > n)
+                {
+                    return BinarySearch(array, a, mid, n);
+                }
+            }
+            return -1;
+            
+        }
+
+        static int jumpSearch(int[] array,int a, int n)
+        {
+            //Time Complexity O(Sqrt(n)) i.e between Linear search and Binary Search
+            int jump = Convert.ToInt32(Math.Sqrt(array.Length));
+            if (array[a]==n)
+            {
+                return a;
+            }
+            if (array[a] > n)
+            {
+                for (int i = a-jump; i < a+jump; i++)
+                {
+                    if (array[i]==n)
+                    {
+                        return i;
+                    }
+                }
+            }
+            else
+                return jumpSearch(array, a + jump, n);
+
+            return -1;
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            string[] s = Console.ReadLine().Trim().Split();
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] input = Array.ConvertAll(s, int.Parse);
+            var inputArray = input.OrderBy(x => x).ToArray();
+            Console.WriteLine(jumpSearch(inputArray,0,n));
+            //Console.WriteLine(BinarySearch(inputArray, 0, inputArray.Length, n));
+            //LinearSearch(input, n);
+        }
+    }
+}
