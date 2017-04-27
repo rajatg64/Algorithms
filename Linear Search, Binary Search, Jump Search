@@ -73,6 +73,48 @@ namespace ConsoleApp
 
             return -1;
         }
+        
+        static int interpolationSearch(int[] array, int a,int b, int n)
+        {
+            if (array.Length >= 1)
+            {
+                int pos = a + ((n - array[a]) * (b - a) / (array[b] - array[a]));
+                //int mid = a + (b - a) / 2;
+                if (array[pos] == n)
+                {
+                    return pos;
+                }
+                else if (array[pos] < n)
+                {
+                    return interpolationSearch(array, pos, b, n);
+                }
+                else if (array[pos] > n)
+                {
+                    return interpolationSearch(array, a, pos, n);
+                }
+            }
+            return -1;
+
+        }
+
+        static int TernarrySearch(int[] array, int a, int b, int n)
+        {
+            //Time Complexity O(log  n)
+            int mid1 = a + (b - a) / 3;
+            int mid2 = mid1 + (b - a) / 3;
+            if (array[mid1] == n) return mid1;
+            if (array[mid2] == n) return mid2;
+            if (array[mid1]>n)
+            {
+                return TernarrySearch(array, a, mid1 - 1, n);
+            }
+            if (array[mid2]<n)
+            {
+                return TernarrySearch(array, mid2 + 1, b, n);
+            }
+
+            return TernarrySearch(array, mid1 - 1, mid2 + 1, n);
+        }
 
 
 
