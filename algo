@@ -1,0 +1,29 @@
+25-4-2017--------------------
+Asymptotic Analysis:we evaluate the performance of an algorithm in terms of input size (we don’t measure the actual running time). 
+		    We calculate, how does the time (or space) taken by an algorithm increases with the input size.
+limitation of Asymptotic Analysis:
+	1-two algo takes 100nlogn and 2nlogn time.Both of these algorithms are asymptotically same (order of growth is nLogn).so we can't judge which is better.
+	2-we always talk about input sizes larger than a constant value. It might be possible that those large inputs are never given to your software
+
+1) T Notation-both upper bound and lower bound
+2) Big O Notation- upper bound
+3) O Notation-lower bound
+
+
+Linear Search O(n)
+Binary Search (works on sorted array) O(Log(n))
+Jump Search :Binary Search is better than Jump Search, but Jump search has an advantage that we traverse back only once (Binary Search may require up to O(Log n) jumps,
+ 		consider a situation where the element to be search is the smallest element or smaller than the smallest).
+		 So in a systems where jumping back is costly, we use Jump Search. O(sqrt(n))
+
+26-4-2017--------------------
+
+Exponential Search: O(Log n) time
+Ternary Search:
+
+Q-Why is Binary Search preferred over Ternary Search?
+A-https://cs.stackexchange.com/questions/29755/why-is-binary-search-faster-than-ternary-search
+
+Q-Interpolation search vs Binary search
+A-Interpolation search works better than Binary Search for a sorted and uniformly distributed array
+
