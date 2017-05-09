@@ -1,21 +1,91 @@
-<div ng-controller="loginctrl">
-<div class="container-fluid" style="width:50%;text-align:center;margin-top:5cm ">
-  <div class="panel panel-default">
-<form action="/" id="myLogin">
-      <div class="panel-heading" style="background-color: whitesmoke">Login</div>
-      <div class="panel-body">
-        <div>
-      <span class="glyphicon glyphicon-user"></span>
-      <input type="text"  id="username" ng-model="username" placeholder="Please enter username" size="25"><br>
+<!DOCTYPE hmtl>
+<html ng-app="app">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <link href="styles/style.css" rel="stylesheet"></link>
+  </head>
+
+
+  <body >
+
+<!--start of header-->
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div style="text-align: center; margin-top:10px;margin-bottom:10px">Library Management System</div>
     </div>
-        <div>
-      <span class="glyphicon glyphicon-lock"></span>
-      <input type="password" id="password" ng-model="password" placeholder="Please enter password" size="25">
+  </div>
+</header>
+<!--end of header-->
+
+<!--start of page content-->
+<div class="view" ng-controller="loginCtrl">
+
+
+  <div class="bs-example">
+    <div class="panel panel-primary" >
+      <div class="panel-heading">
+        <div class="panel-title" >Log In</div>
+        </div>
+
+      <div style="padding-top:30px" class="panel-body">
+        <!-- <div class="row" style="margin-bottom: 25px" >
+            <div class="col-xs-12" style="color:red">{{message}}</div>
+        </div> -->
+    <div ng-if="retValue==0" class="row" style="margin-bottom: 25px">
+      <span class="col-xs-12" style="color:red">Please provide valid login credentials</span>
     </div>
-  <br>
-  <button type="button" ng-click=submit()>Login</button>
+    <form id="loginform" role="form" name="form">
+    <div class="row" style="margin-bottom:25px">
+      <div class="col-xs-7">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text" ng-model="users.username" placeholder="Please enter your registered username here">
+        </div>
+      </div>
+  </div>
+
+  <div class="row" style="margin-bottom:25px">
+    <div class="col-xs-7">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="password" ng-model="users.password" placeholder="Please enter your password here">
+      </div>
+    </div>
 </div>
+<div class="row">
+  <button type="submit" ng-click=validate(loginform) class="btn btn-primary input" style="margin-left:20px">Login</button>
+  <div>
 </form>
+
+  <!-- <p>
+    <label for="username"> username </label>
+    <input type="text" ng-model="users.username">
+  </p> -->
+<!--
+  <p>
+    <label for="password"> Password </label>
+    <input type="password" ng-model="users.password">
+  </p> -->
+
+
+  <!-- <button ng-click=validate()>Login</button> -->
 </div>
 </div>
 </div>
+</div>
+
+
+
+  </body>
+</html>
