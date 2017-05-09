@@ -1,0 +1,21 @@
+<div ng-controller="loginctrl">
+<div class="container-fluid" style="width:50%;text-align:center;margin-top:5cm ">
+  <div class="panel panel-default">
+<form action="/" id="myLogin">
+      <div class="panel-heading" style="background-color: whitesmoke">Login</div>
+      <div class="panel-body">
+        <div>
+      <span class="glyphicon glyphicon-user"></span>
+      <input type="text"  id="username" ng-model="username" placeholder="Please enter username" size="25"><br>
+    </div>
+        <div>
+      <span class="glyphicon glyphicon-lock"></span>
+      <input type="password" id="password" ng-model="password" placeholder="Please enter password" size="25">
+    </div>
+  <br>
+  <button type="button" ng-click=submit()>Login</button>
+</div>
+</form>
+</div>
+</div>
+</div>
