@@ -1,0 +1,66 @@
+<html ng-app="app">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <link href="style/style.css" rel="stylesheet"></link>
+  </head>
+  <body ng-controller='ctrl'>
+
+<div class="container" style="padding-top:50px">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="panel-title" >To Do List</div>
+      </div>
+    <div style="padding-top:30px; text-align:center" class="panel-body">
+        <!-- <label for="task">Please enter task :</label> -->
+        <div class="row">
+          <div class="col-xs-7">
+            <div class="input-group">
+            <span class="input-group-addon"><i class="	glyphicon glyphicon-edit"></i></span>
+            <input type="text" style="width:100%" ng-model="task" placeholder="Enter task to add to TODO List">
+          </div>
+          </div>
+        <div>
+
+          <div class="row">
+            <div class="col-xs-7">
+              <div class="input-group">
+        <div style="margin-top:20px;margin-left:50px">
+          <button ng-click="insert()"> Submit Task</button>
+        </div>
+            </div>
+            </div>
+            </div>
+
+            <div style="margin-left:500px">
+              <table border="1" width="50%">
+                <th>Task Name</th>
+                <th>Status</th>
+                <tr ng-repeat="task in tasks">
+                  <td>{{task.name}}</td>
+                  <td><input type="checkbox" ng-model="task.status"></td>
+                </tr>
+              </table>
+            <!-- <b>Task Name:</b>
+            <b>Status:</b> <input type="checkbox" ng-model="task.status"> -->
+          </div>
+          <br>
+            <button ng-click="RemoveTask()">Remove Tasks</button>
+
+  </div>
+  </div>
+</div>
+
+
+
+
+
+  </body>
+</html>
