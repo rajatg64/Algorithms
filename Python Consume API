@@ -1,0 +1,9 @@
+from urllib.request import urlopen
+import json
+url = "http://jsonplaceholder.typicode.com/posts/"
+resp = urlopen(url).read().decode('utf8')
+jData = json.loads(resp)
+print("The Response Contains {0} properties".format(len(jData)))
+print("\n")
+for key in jData:
+    print(key)
